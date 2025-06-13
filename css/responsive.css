@@ -5,13 +5,245 @@
 */
 
 @media (min-width: 1024px) {
-  /* .top-navigation .trigram {
-    display: none;
-  } */
-
   /* 👇👇👇 Add the styles that belong to the DESKTOP view only beneath 👇👇👇 */
+  .top-navigation .trigram {
+    display: none;
+  }
+  .top-navigation ul li a {
+    transition: text-shadow 0.5s ease; /* using text-shadow instead of font-wight: bold; prevents the
+    blocks of text from jerking on hover, which could also set a fixed width with but this seems better IMO*/
+  }
+  .top-navigation ul li a:hover {
+    text-shadow: 0 0 1px black;
+  }
+
+  /* these two add a hover transition to the social icons*/
+  .teammate-social-icons div {
+    transition: 0.5s;
+  }
+  .teammate-social-icons div:hover {
+    background-color: rgb(85, 85, 85);
+    cursor: pointer;
+  }
+  div.icon {
+    transition: 0.5s; /* like it better with adding a scale transition here also*/
+  }
+  div.icon:hover {
+    background-color: white;
+    scale: 1.05;
+    cursor: pointer;
+  }
+  div.icon:hover + span {
+    color: white;
+    scale: 1.01;
+  }
+  .footer-contacts a:hover {
+    color: white;
+    text-shadow: 0 0 1px rgb(112, 112, 112);
+    text-decoration: underline;
+  }
 }
 
 /* 👇👇👇 Add the media rule and the styles that are common within the TABLET and MOBILE views beneath 👇👇👇 */
+@media (max-width: 1023px) {
+  header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-bottom: 70px;
+    width: 100%;
+  }
+  .content.header-content {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.514);
+    width: 100%;
+    box-shadow: 2px 2px 6px rgba(110, 110, 110, 0.411);
+  }
+  button.trigram ~ ul {
+    position: fixed; /*shows only the hamburger but not the other options as they are out of view*/
+    top: -100px;
+    opacity: 0;
+    transition: top 0.8s ease-in-out;
+    transition-delay: 0.2s;
+  }
+  button.trigram:focus ~ ul,
+  button.trigram:hover ~ ul,
+  ul.show-menu {
+    opacity: 1;
+    display: flex;
+    width: 100%;
+    height: 75px;
+    background: linear-gradient(rgb(255, 255, 255), rgb(236, 236, 236) 80%);
+    font-weight: bold;
+    box-shadow: 2px 2px 6px rgba(255, 255, 255, 0.514);
+    position: fixed;
+    justify-content: space-evenly;
+    align-items: center;
+    top: 0;
+    right: 0;
+    line-height: 150%; /* shows the menu when the hamburger is hovered or focused, or when .show-menu is added */
+  }
+  .header-content ul li {
+    width: fit-content;
+    padding: 16px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+  }
+  .header-content ul li:hover,
+  .header-content ul li:focus {
+    background-color: rgb(228, 227, 227);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.479);
+  }
+  .header-content ul li:hover a,
+  .header-content ul li:focus a {
+    color: black;
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+  }
 
+  .portfolio-list {
+    flex-direction: column;
+    text-align: center;
+  }
+  .portfolio-item {
+    flex-direction: row;
+  }
+  .portfolio-item-info {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .teammates-list-wrapper {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+  }
+  .teammates-content {
+    width: 100% !important;
+  }
+  .teammate {
+    width: 40%; /* this makes the teammate divs in rows of two*/
+    align-items: center;
+  }
+  .teammate-info {
+    align-items: center; /*makes the name and title centered*/
+  }
+  .teammate-img-wrapper {
+    width: 100%;
+    height: 69%;
+  }
+  div.teammates-list::before,
+  div.teammates-list::after {
+    content: none; /*this gets rid of the < and > around the teammate section*/
+  }
+  .teammate-data * {
+    justify-content: center; /*centers alignment of name, title, and social icons*/
+  }
+
+  footer .social-icons div {
+    /*this gets rid of the extra space from the hard-coded width
+    of the main css file*/
+    width: fit-content;
+  }
+
+  .icon + span {
+    display: none;
+  }
+  .footer-contacts {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .footer-contacts div {
+    width: 40%;
+  }
+  /*here are the color changes for the icons: */
+  .teammate-social-icons div {
+    background-color: rgb(85, 85, 85);
+  }
+  .footer-content .social-icons div.icon {
+    background-color: white;
+  }
+  .footer-contacts ul li a {
+    color: white;
+    text-shadow: 0 0 1px rgb(112, 112, 112);
+  }
+}
 /* 👇👇👇 Add the media rule and the styles that belong to the MOBILE view only beneath 👇👇👇 */
+@media (max-width: 767px) {
+  .content.header-content ul {
+    /*for the dropdown header menu*/
+    top: -600px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    min-height: fit-content;
+    gap: 30px;
+    padding: 30px;
+  }
+  .header-content ul li {
+    width: 100%;
+  }
+  .portfolio-item {
+    flex-direction: column;
+  }
+  .portfolio-item-info {
+    align-items: center;
+    text-align: center;
+  }
+  /* .section-info .surrounded-header {
+    font-size: 8.2vw; /* keeps title from wrapping multiple lines
+  } */
+  .surrounded-header {
+    padding: 5px !important; /* this overrides the 60px padding that can cause a text -wrap on 
+    really small screens*/
+    width: 100%;
+  }
+  p.subtext {
+    width: 100% !important;
+    padding: 5px !important; /*these overrides fix the hard-coded width of 700px, and
+    keep the padding from taking most of the text-area*/
+  }
+  .teammate {
+    width: 100%;
+    border: 1px solid black;
+    padding: 16px;
+    flex-direction: row;
+    gap: 16px;
+  }
+  .teammate-img-wrapper {
+    display: flex;
+    width: 130px;
+    min-width: 130px;
+    height: 130px;
+  }
+  .teammate-data {
+    flex: 1;
+  }
+  .teammate-info {
+    align-items: flex-start;
+    flex: 1;
+  }
+  .teammate-social-icons {
+    justify-content: flex-start;
+    gap: 16px;
+  }
+  .social-icons {
+    flex-direction: column;
+  }
+  .icon + span {
+    display: block;
+  }
+  div.icon + span {
+    color: white;
+    scale: 1.01;
+  }
+  .footer-contacts {
+    gap: 50px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-contacts div {
+    width: fit-content;
+  }
+}

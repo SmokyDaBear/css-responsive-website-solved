@@ -19,12 +19,12 @@ This assignment should prove that a student is able to:
 
 ## Standard requirements
 
-- [ ] Fork the project to your github account
-- [ ] Clone the project to your computer
-- [ ] Open the project in VSCode with code <cloned_repo_folder_name>
-- [ ] This assignment does **NOT** have automated tests!
+- [x ] Fork the project to your github account
+- [x ] Clone the project to your computer
+- [x ] Open the project in VSCode with code <cloned_repo_folder_name>
+- [x ] This assignment does **NOT** have automated tests!
 - [ ] All the tasks of the "Specific requirements" section MUST be solved
-- [ ] The project's file/folder structure should NOT be edited!
+- [ x] The project's file/folder structure should NOT be edited!
 - [ ] The index.html file should NOT be edited!
 - [ ] The `/css/styles.css` file should NOT be edited!
 - [ ] VSCode IDE MUST have 0 problems listed
